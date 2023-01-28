@@ -1,11 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
-import { ArrowRightIcon } from "@heroicons/react/solid"
+import { ArrowRightIcon } from "@heroicons/react/solid";
+import { useSigner } from "wagmi";
+import { useRouter } from "next/router";
 
 export default function Home() {
 
-  const { openConnectModal } = useConnectModal();
+  const { openConnectModal } = useConnectModal()
+  const { data: signer } = useSigner()
+  const router = useRouter()
   
   return(
     <div>
@@ -27,11 +31,16 @@ export default function Home() {
             </p>
           </div>
           <div className="w-full sm:space-x-5 flex flex-col sm:flex-row space-y-2.5 sm:space-y-0 justify-center">
-            <button className="py-2.5 px-10 border-2 border-black rounded-[50px] font-semibold hover:bg-black hover:text-white
-              flex justify-center items-center space-x-5 group" onClick={openConnectModal}>
-              <p className="w-5 h-5">Enter</p>
-              <ArrowRightIcon className="w-5 h-5 text-black group-hover:text-white mt-1.5" />
-            </button>
+            {
+              signer ?
+              <button className="py-2.5 px-10 border-2 border-black rounded-[50px] font-semibold hover:bg-black hover:text-white
+                flex items-center space-x-1 group" onClick={() => router.push("/main")}>
+                <p>Enter</p>
+                <ArrowRightIcon className="w-5 h-5 text-black group-hover:text-white" />
+              </button> :
+              <button className="py-2.5 px-10 border-2 border-black rounded-[50px] font-semibold hover:bg-black hover:text-white
+                flex justify-center items-center space-x-5 group" onClick={openConnectModal}>Connect Wallet</button>
+            }
             <button className="py-2.5 px-10 border-2 border-black rounded-[50px] font-semibold hover:bg-black hover:text-white">Support us</button>
           </div>
         </div>
