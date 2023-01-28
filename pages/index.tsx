@@ -23,7 +23,7 @@ export default function Home() {
           </div>
           <div className="w-full text-center">
             <p className="font-semibold italic">
-              {'"'}Incentivizing change in africa{'"'}
+              {'"'}Incentivizing change in Nigeria{'"'}
             </p>
           </div>
           <div className="w-full sm:space-x-5 flex flex-col sm:flex-row space-y-2.5 sm:space-y-0 justify-center">
