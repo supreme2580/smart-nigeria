@@ -5,8 +5,9 @@ import { useRecoilValue } from "recoil"
 export default function Main() {
     const place = useRecoilValue(location)
     useEffect(() => {
+        console.log(place)
         if (place !== "NGA" && typeof window != "undefined") {
-            window.location.href = "/"   
+            window.location.href = "/"
         }
     }, [])
     return(

@@ -6,6 +6,8 @@ import { useSigner } from "wagmi";
 import { useRouter } from "next/router"
 import lookup from "coordinate_to_country"
 import { useState } from "react";
+import { location } from "../atoms/location"
+import { useRecoilState } from "recoil";
 
 export default function Home() {
 
@@ -13,15 +15,16 @@ export default function Home() {
   const { data: signer } = useSigner()
   const router = useRouter()
   const [error, setError] = useState(false)
-  const [iso, setIso] = useState(null)
+  const [iso, setIso] = useRecoilState(location)
 
   function showLocation(position) {
     var latitude = position.coords.latitude
     var longitude = position.coords.longitude
     const result = lookup(longitude, latitude)
+    console.log(result)
     if (result != "NGA") {
       setError(true)
-      setIso(result)
+      setIso(result[0])
     }
     else {
       router.push("/main")
