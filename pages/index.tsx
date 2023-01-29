@@ -4,7 +4,7 @@ import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import { useSigner } from "wagmi";
 import { useRouter } from "next/router"
-import lookup from "coordinate_to_country"
+const lookup = require("coordinate_to_country")
 import { useState } from "react";
 
 export default function Home() {
