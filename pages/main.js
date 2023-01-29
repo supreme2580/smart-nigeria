@@ -1,4 +1,4 @@
-import { location } from "atoms/location"
+import { location } from "../atoms/location"
 import { useEffect } from "react"
 import { useRecoilValue } from "recoil"
 import Navbar from "../components/Navbar"
