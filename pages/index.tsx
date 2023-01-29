@@ -4,8 +4,7 @@ import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import { useSigner } from "wagmi";
 import { useRouter } from "next/router"
-import dynamic from 'next/dynamic'
-import lookup from "coordinate_to_country"
+const lookup = require("coordinate_to_country")
 import { useState } from "react";
 
 export default function Home() {
@@ -69,7 +68,7 @@ export default function Home() {
             </p>
           </div>
           {
-            iso && <div>
+            error && <div>
             <p className="text-red-700 font-semibold">Unsupported region: {iso}</p>
           </div>
           }
