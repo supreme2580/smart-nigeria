@@ -1,16 +1,20 @@
 import { location } from "atoms/location"
 import { useEffect } from "react"
 import { useRecoilValue } from "recoil"
+import Navbar from "../components/Navbar"
 
 export default function Main() {
     const place = useRecoilValue(location)
     useEffect(() => {
-        console.log(place)
         if (place !== "NGA" && typeof window != "undefined") {
             window.location.href = "/"
         }
     }, [])
     return(
-        <div></div>
+        <div className="w-full">
+            <div className="w-full">
+                <Navbar />
+            </div>
+        </div>
     )
 }
