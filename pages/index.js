@@ -21,6 +21,7 @@ export default function Home() {
     var latitude = position.coords.latitude
     var longitude = position.coords.longitude
     const result = lookup(longitude, latitude)
+    console.log(result)
     if (result != "NGA") {
       setError(true)
       setIso(result[0])
