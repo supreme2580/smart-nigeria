@@ -4,8 +4,10 @@ import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import { useSigner } from "wagmi";
 import { useRouter } from "next/router"
-import lookup from "coordinate_to_country"
+import dynamic from 'next/dynamic';
 import { useState } from "react";
+
+const lookup = dynamic(() => import('coordinate_to_country'))
 
 export default function Home() {
 
