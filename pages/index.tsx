@@ -15,7 +15,7 @@ export default function Home() {
   const [error, setError] = useState(false)
   const [iso, setIso] = useState(null)
 
-  async function showLocation(position: any) {
+  function showLocation(position: any) {
     var latitude = position.coords.latitude
     var longitude = position.coords.longitude
     const result = lookup(longitude, latitude)
