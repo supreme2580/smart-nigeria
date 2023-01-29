@@ -4,7 +4,7 @@ import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import { useSigner } from "wagmi";
 import { useRouter } from "next/router"
-const lookup = require("coordinate_to_country")
+import lookup from "coordinate_to_country"
 import { useState } from "react";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
   const [error, setError] = useState(false)
   const [iso, setIso] = useState(null)
 
-  function showLocation(position: any) {
+  function showLocation(position) {
     var latitude = position.coords.latitude
     var longitude = position.coords.longitude
     const result = lookup(longitude, latitude)
@@ -28,7 +28,7 @@ export default function Home() {
     }
   }
 
-  function errorHandler(err: any) {
+  function errorHandler(err) {
       if(err.code == 1) {
         alert("Error: Access is denied!");
       } else if( err.code == 2) {

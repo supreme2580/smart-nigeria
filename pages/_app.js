@@ -1,5 +1,4 @@
 import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
@@ -31,7 +30,7 @@ const wagmiClient = createClient({
 })
 
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }) {
   return (
     <RecoilRoot>
       <WagmiConfig client={wagmiClient}>
